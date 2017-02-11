@@ -52,15 +52,18 @@
 		         <li><a href="#">Books</a></li>
 		          <li><a href="#">Newspaper</a></li>
 		      </ul>
+
 		      <form class="navbar-form navbar-right" role="search">
+		      	<div class="input-group ingresar">
+		      		<button type="button" class="btn btn-success" id="btn-ingresar">Ingresar</button>
+		      	</div>
 		         <div class="input-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		          
-		          <div class="input-group-btn">
+		          	<input type="text" class="form-control" placeholder="Search">
+		          	<div class="input-group-btn">
 				      <button class="btn btn-link" type="submit">
 				       <span><i class="glyphicon glyphicon-search"></i></span>
 				      </button>
-				    </div>
+				  	</div>
 		        </div>
 		      </form>
 		    </div>
@@ -70,7 +73,6 @@
 
 
 <!-- -------------SLIDER -------------- -->
-	<article>
 		<div class="slider-wrapper theme-default slider"> 
 			<div id="slider" class="nivoSlider">     
 			   <img src="images/slider1.jpg" alt=""/>    
@@ -78,7 +80,6 @@
 			   <img src="images/slider3.jpg" alt=""/>      
 			</div>
 		</div>
-	</article>
 
 
 <!-- -------------COLUMNAS -------------- -->
@@ -123,9 +124,10 @@
 	</article>
 
 
-<!-- -------------FORMULARIO -------------- -->
-<div class="container">
-	<article>
+<!-- -------------FORMULARIO MODAL -------------- -->
+
+<div class="contenedor-modal" id="modal">
+	<div id="cerrar-modal"></div>
 		<div class="formulario">
 		<form class="form-horizontal">
 		  <fieldset>
@@ -145,7 +147,7 @@
 		    <div class="form-group">
 		      <label for="inputPassword" class="col-lg-2 control-label"><span><i class="glyphicon glyphicon-asterisk"></i></span></label>
 		      <div class="col-lg-10">
-		        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+		        <input type="password" minlength="4" class="form-control" id="inputPassword" placeholder="Password">
 		      </div>
 		    </div>
 		    <div class="form-group">
@@ -154,11 +156,19 @@
 					<textarea class="form-control mensaje" rows="3" id="textArea">Your message</textarea>
 				</div>
 		    </div>
+		    <div class="form-group">
+		      <div class="col-lg-10 col-lg-offset-2">
+		        <button type="reset" class="btn btn-default btn-cancelar" id="btn-cancelar">Cancelar</button>
+		        <button type="submit" class="btn btn-primary">Enviar</button>
+		      </div>
+		    </div>
 		    </fieldset>
 	    </form>
 	    </div>
-	</article>
-</div>  <!-- fin .container -->
+	</div>  <!-- fin .contenedor-modal -->
+
+
+
 
 	
 
@@ -166,7 +176,7 @@
 	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
-	<script type="text/javascript" src=="js/script.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 
 	<script type="text/javascript"> 
 		$(window).on('load', function() {
@@ -176,10 +186,10 @@
 			    boxCols: 8,                       // For box animations 
 			    boxRows: 4,                       // For box animations 
 			    animSpeed: 500,                   // Slide transition speed 
-			    pauseTime: 3000,                  // How long each slide will show 
+			    pauseTime: 2000,                  // How long each slide will show 
 			    startSlide: 0,                    // Set starting Slide (0 index) 
 			    directionNav: true,               // Next & Prev navigation 
-			    controlNav: false,                 // 1,2,3... navigation 
+			    controlNav: true,                 // 1,2,3... navigation 
 			    controlNavThumbs: false,          // Use thumbnails for Control Nav 
 			    pauseOnHover: true,               // Stop animation while hovering 
 			    manualAdvance: true,             // Force manual transitions 
