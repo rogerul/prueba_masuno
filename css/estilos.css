@@ -1,0 +1,84 @@
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
+
+/************** NAV ******************/
+
+.navbar{
+	border-radius: 0;
+}
+
+
+.navbar ul.item>li:hover {
+	background-color: #5659D9; 
+}
+
+
+/************** SEARCH ******************/
+
+.navbar .btn.btn-link{
+	color: #fff;
+}
+
+.navbar .btn.btn-link:hover{
+	color: #fff;
+	background-color: transparent;
+}
+
+.navbar .btn.btn-link:active{
+	color: #fff;
+	background-color: transparent;
+}
+
+.navbar .btn.btn-link:focus{
+	color: #fff;
+	background-color: transparent;
+}
+
+
+.slider{
+	margin-bottom: 50px;
+}
+
+/************** COLUMNAS ******************/
+.columna{
+	padding: 20px 20px;
+	box-sizing: border-box;
+}
+
+.columna section{
+	padding: 40px;
+	background-color: #b2dbfb;
+}
+
+.columna-centro section{
+	background-color: #f5f5f5;
+}
+
+
+/************** FORMULARIO ******************/
+.formulario{
+	width: 50%;
+	background-color: #eeeeee;
+	padding: 20px 30px;
+	margin: 0 auto;
+	color: #0c84e4;
+}
+
+.formulario fieldset legend{
+	color: color: #0c84e4;
+}
+
+textarea.mensaje{
+	width: 100%;
+	color: red;
+}
+
+
+@media screen and (max-width:678px){
+	.formulario{
+		width: 100%;
+	}
+}
+
