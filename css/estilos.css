@@ -149,3 +149,10 @@ textarea.mensaje{
 	}
 }
 
+
+/************** alerta formulario******************/
+span.alerta{
+	color: red;
+}
+
+
