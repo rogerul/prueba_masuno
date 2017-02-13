@@ -75,15 +75,16 @@ $(document).ready(function(){
 		});
 
 
-		//VALIDAR TEXTAREA COMENTARIO - PALABRAS SOECES
+		//VALIDAR TEXTAREA restringir PALABRAS SOECES
 
-		var groserias=["idiota", "imbecil", "carajo", "mierda", "estupido", "estupida", "puta"];
+		var groserias=["idiota", "imbecil", "carajo", "mierda", "estupido", "estupida", "puta", "puto", "cojudo", "cojuda", "putamare", "jodas", "joder"];
 		var signos="######";  
 		
-		$('#comentario').keyup(function() {
+		function corregirPalabra() {
+			// var tecla = (document.all) ? e.keyCode : e.which;  // reconocer tecla pulsada
 			var comentario=$('#comentario').val();
 			var palabras_array=comentario.split(" ");
-
+			// alert("la funcion corregirPalabra")
 				for(var i=0; i<groserias.length; i++){
 					for (var p=0; p<palabras_array.length; p++) {
 						if(palabras_array[p].toLowerCase()==groserias[i]){
@@ -91,17 +92,28 @@ $(document).ready(function(){
 						} 					
 					}
 				}
-			$('#comentario').val(palabras_array);
+				var textoCadena=palabras_array.toString();  // convertir array a string
+				textoReemplazo=textoCadena.replace(/,/g," "); //reemplazar la coma "," por espacio
+				// document.getElementById('comentario').value=textoReemplazo;
+				$('#comentario').val(textoReemplazo);
+		};
+
+		//llamando funcion
+		$('#comentario').keypress(function(e){
+			var tecla = (document.all) ? e.keyCode : e.which;  // reconocer tecla pulsada
+
+			if(tecla==32){  // evento con tecla backSpace
+				corregirPalabra();
+			}	
+			if (tecla==13){  // evitar uso de tecla enter
+				corregirPalabra();
+				return false;
+			}
 		});
 
-
-		// $('#comentario').keyup(function(){
-		// 	corregirPalabra();
-		// }).keyup();
-
-
-			
-
+		$('#comentario').focusout(function() {
+			corregirPalabra();
+		});
 });
 
 
