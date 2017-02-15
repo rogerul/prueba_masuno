@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	/********************* MODAL****************************/
 
-	$('#btn-ingresar').click(function() {
+	$('#btn-ingresar').click(function() {  // mostrar modal
 		$('#modal').fadeIn(500);
 	});
 
@@ -44,10 +44,10 @@ $(document).ready(function(){
 	var expr_mail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;  //expresion regular par email
 	$('#email').focusout(function() {
 		var correo=$('#email').val();
-		if(correo == "" || !expr_mail.test(correo)){  // verifcando si correo tiene los campos requeridos
+		if(correo == "" || !expr_mail.test(correo)){  // verifcando si correo tiene los campos de la variable expr_mail
 			$(this).stop().after("<span class='alerta' style=font-size:12px;>Campo obligatorio debe contener el simbolo @ </span>");
 			$(this).val("");
-			return false;
+			// return false;
 		} else{
 			$(this).next().stop().fadeOut(300);
 		}
@@ -58,15 +58,15 @@ $(document).ready(function(){
 	});
 
 
-	//validar clave
+	//validar clave como mínimo 4 caracteres
 		$('#clave').focusout(function (){
 			var clave=$('#clave').val();
-			if(clave.length<4){
+			if(clave.length<4){  // si es mas de 4 mostrar un crea .after 
 				$(this).stop().after("<span class='alerta' style=font-size:12px;>La contraseña debe contener entre mínimo 4 caracteres</span>");
 				$(this).val("");
 				return false;
 			} else{
-				$(this).next().stop().fadeOut(300);
+				$(this).next().stop().fadeOut(300);  // ocultando el el sigiente (el after).
 			}
 		});
 
@@ -81,9 +81,8 @@ $(document).ready(function(){
 		var signos="######";  
 		
 		function corregirPalabra() {
-			// var tecla = (document.all) ? e.keyCode : e.which;  // reconocer tecla pulsada
-			var comentario=$('#comentario').val();
-			var palabras_array=comentario.split(" ");
+			var comentario=$('#comentario').val();  //almacenando valor del textarea #comentario
+			var palabras_array=comentario.split(" "); //convertir string en array
 			// alert("la funcion corregirPalabra")
 				for(var i=0; i<groserias.length; i++){
 					for (var p=0; p<palabras_array.length; p++) {
@@ -100,14 +99,14 @@ $(document).ready(function(){
 
 		//llamando funcion
 		$('#comentario').keypress(function(e){
-			var tecla = (document.all) ? e.keyCode : e.which;  // reconocer tecla pulsada
+			var tecla = (document.all) ? e.keyCode : e.which;  // reconocer tecla pulsada 
 
 			if(tecla==32){  // evento con tecla backSpace
 				corregirPalabra();
 			}	
-			if (tecla==13){  // evitar uso de tecla enter
-				corregirPalabra();
-				return false;
+			if (tecla==13){  // evento con tecla enter
+				corregirPalabra(); 
+				return false; // evitar uso de tecla enter
 			}
 		});
 
